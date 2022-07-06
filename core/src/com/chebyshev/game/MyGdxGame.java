@@ -21,17 +21,17 @@ public class MyGdxGame implements ApplicationListener {
 	}
 
 	@Override
-	public void resize(int width, int height) {
-		cameraStage.resize(width,height);
-	}
-
-	@Override
 	public void render () {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		cameraStage.draw();
 		worldStage.draw();
 		batch.end();
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		cameraStage.resize(width,height);
 	}
 
 	@Override

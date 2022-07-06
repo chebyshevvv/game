@@ -39,6 +39,7 @@ public class PlayerController {
         player.boost();
     }
     public View refresh(){
+        playerView.setLocation(player.getX(), player.getY());
         return playerView;
     }
     public int getX(){

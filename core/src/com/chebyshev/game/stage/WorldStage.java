@@ -61,7 +61,9 @@ public class WorldStage extends InputAdapter {
 
     public void draw(){
         process();
-        View view = worldController.refresh();
-        view.draw(batch);
+        View worldView = worldController.refresh();
+        View playerView = playerController.refresh();
+        worldView.draw(batch);
+        playerView.draw(batch);
     }
 }

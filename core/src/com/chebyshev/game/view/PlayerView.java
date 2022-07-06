@@ -30,9 +30,13 @@ public class PlayerView implements View{
     @Override
     public void draw(Batch batch) {
         TextureRegion frame = animation.getKeyFrame(stateTime, true);
-        batch.draw(frame,0,0);
+        batch.draw(frame,x,y);
     }
     public void animate(){
         stateTime += Gdx.graphics.getDeltaTime();
+    }
+    public void setLocation(int x,int y){
+        this.x = x;
+        this.y = y;
     }
 }
