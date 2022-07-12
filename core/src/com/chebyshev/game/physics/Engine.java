@@ -15,7 +15,7 @@ public class Engine {
         if (v == 0){
             result = f;
         }else {
-            result = p / v;
+            result = Math.abs(p / v);
             if (result > f){
                 result = f;
             }

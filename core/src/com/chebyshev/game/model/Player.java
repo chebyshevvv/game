@@ -1,21 +1,20 @@
 package com.chebyshev.game.model;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.chebyshev.game.physics.DefaultBoost;
 import com.chebyshev.game.physics.Direction;
 import com.chebyshev.game.physics.Engine;
-
-import java.util.Objects;
 
 public class Player {
     DefaultBoost boost;
     Direction direction;
     Engine engine;
-    int width = 32;
-    int height = 16;
+    Rectangle rectangle;
     private static final Player player = new Player();
 
     private Player() {
-        boost = new DefaultBoost(100, 0, 0);
+        rectangle = new Rectangle(0,0,16,32);
+        boost = new DefaultBoost(100, rectangle.x, rectangle.y);
         engine = new Engine(600,300);
     }
     public static Player getInstance(){
@@ -28,21 +27,27 @@ public class Player {
         }else if (Direction.LEFT.equals(direction) || Direction.RIGHT.equals(direction)){
             f = engine.work(boost.v.x);
         }
-        boost.boost(direction,Math.abs(f));
+        boost.boost(direction,f);
+        rectangle.x = boost.x;
+        rectangle.y = boost.y;
     }
     public void setDirection(Direction direction){
         this.direction = direction;
     }
-    public int getX(){
-        return boost.x;
+    public float getX(){
+        return rectangle.x;
     }
-    public int getY(){
-        return boost.y;
+    public float getY(){
+        return rectangle.y;
     }
-    public int getWidth(){
-        return width;
+    public float getWidth(){
+        return rectangle.width;
     }
-    public int getHeight(){
-        return height;
+    public float getHeight(){
+        return rectangle.height;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
     }
 }

@@ -42,10 +42,10 @@ public class PlayerController {
         playerView.setLocation(player.getX(), player.getY());
         return playerView;
     }
-    public int getX(){
+    public float getX(){
         return player.getX();
     }
-    public int getY(){
+    public float getY(){
         return player.getY();
     }
 }

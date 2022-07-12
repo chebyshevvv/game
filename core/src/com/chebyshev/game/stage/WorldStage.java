@@ -3,6 +3,7 @@ package com.chebyshev.game.stage;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.chebyshev.game.controller.CharacterController;
 import com.chebyshev.game.controller.PlayerController;
 import com.chebyshev.game.controller.WorldController;
 import com.chebyshev.game.view.View;
@@ -12,6 +13,7 @@ import java.util.Stack;
 public class WorldStage extends InputAdapter {
     WorldController worldController;
     PlayerController playerController;
+    CharacterController characterController;
     Batch batch;
     Stack<Integer> keyCodesStack = new Stack<>();
 
@@ -19,6 +21,7 @@ public class WorldStage extends InputAdapter {
         this.batch = batch;
         worldController = new WorldController();
         playerController = new PlayerController();
+        characterController = new CharacterController();
     }
 
     @Override
@@ -63,7 +66,9 @@ public class WorldStage extends InputAdapter {
         process();
         View worldView = worldController.refresh();
         View playerView = playerController.refresh();
+        View characterView = characterController.refresh();
         worldView.draw(batch);
         playerView.draw(batch);
+        characterView.draw(batch);
     }
 }

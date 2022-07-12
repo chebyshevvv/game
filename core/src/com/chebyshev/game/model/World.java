@@ -1,21 +1,26 @@
 package com.chebyshev.game.model;
 
 public class World {
-    int width;
-    int height;
+    float width;
+    float height;
     Player player;
+    Character character;
 
-    public World(int width, int height) {
+    public World(float width, float height) {
         this.width = width;
         this.height = height;
         this.player = Player.getInstance();
+        character = new Character();
+    }
+    public void checkCollision(){
+
     }
 
-    public int getWidth() {
+    public float getWidth() {
         return width;
     }
 
-    public int getHeight() {
+    public float getHeight() {
         return height;
     }
 

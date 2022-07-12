@@ -10,8 +10,8 @@ public class PlayerView implements View{
     Animation<TextureRegion> animation;
     Texture texture;
     float stateTime;
-    int x;
-    int y;
+    float x;
+    float y;
 
     public PlayerView() {
         texture = new Texture("NPC.png");
@@ -35,7 +35,7 @@ public class PlayerView implements View{
     public void animate(){
         stateTime += Gdx.graphics.getDeltaTime();
     }
-    public void setLocation(int x,int y){
+    public void setLocation(float x,float y){
         this.x = x;
         this.y = y;
     }

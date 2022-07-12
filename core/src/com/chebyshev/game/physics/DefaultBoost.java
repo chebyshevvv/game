@@ -2,13 +2,13 @@ package com.chebyshev.game.physics;
 
 
 public class DefaultBoost implements Boost{
-    public int x;
-    public int y;
+    public float x;
+    public float y;
     public Velocity v;
     float m;
     float friction;
 
-    public DefaultBoost(float m, int x, int y) {
+    public DefaultBoost(float m, float x, float y) {
         this.x = x;
         this.y = y;
         this.m = m;
@@ -34,6 +34,7 @@ public class DefaultBoost implements Boost{
             v.stoppingX(friction / m);
             v.stoppingY(friction / m);
         }
+        System.out.println("v=" + v.x + "|" + v.y);
         x += v.x;
         y += v.y;
     }
