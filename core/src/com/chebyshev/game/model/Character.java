@@ -6,16 +6,19 @@ import com.chebyshev.game.physics.DefaultBoost;
 import com.chebyshev.game.physics.Direction;
 
 public class Character {
-    Boost boost;
+    DefaultBoost boost;
     Direction direction;
     Rectangle rectangle;
+    public static final Character instance = new Character();
 
-    public Character() {
+    private Character() {
         rectangle = new Rectangle(100,100,16,32);
         boost = new DefaultBoost(1000, rectangle.x, rectangle.y);
     }
     public void collide(float force){
         boost.boost(direction,force);
+        rectangle.x = boost.x;
+        rectangle.y = boost.y;
     }
     public void setDirection(Direction direction){
         this.direction = direction;

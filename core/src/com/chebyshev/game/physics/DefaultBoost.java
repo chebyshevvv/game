@@ -5,7 +5,7 @@ public class DefaultBoost implements Boost{
     public float x;
     public float y;
     public Velocity v;
-    float m;
+    public float m;
     float friction;
 
     public DefaultBoost(float m, float x, float y) {
@@ -34,7 +34,6 @@ public class DefaultBoost implements Boost{
             v.stoppingX(friction / m);
             v.stoppingY(friction / m);
         }
-        System.out.println("v=" + v.x + "|" + v.y);
         x += v.x;
         y += v.y;
     }

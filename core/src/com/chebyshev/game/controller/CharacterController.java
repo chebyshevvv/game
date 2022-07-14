@@ -9,7 +9,7 @@ public class CharacterController {
     PlayerView view;
 
     public CharacterController() {
-        character = new Character();
+        character = Character.instance;
         view = new PlayerView();
     }
     public View refresh(){

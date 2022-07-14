@@ -1,5 +1,8 @@
 package com.chebyshev.game.model;
 
+import com.badlogic.gdx.math.Rectangle;
+import com.chebyshev.game.physics.Direction;
+
 public class World {
     float width;
     float height;
@@ -10,10 +13,18 @@ public class World {
         this.width = width;
         this.height = height;
         this.player = Player.getInstance();
-        character = new Character();
+        character = Character.instance;
     }
     public void checkCollision(){
-
+        Rectangle playerRectangle = player.getRectangle();
+        Rectangle characterRectangle = character.getRectangle();
+        boolean isCollision = playerRectangle.contains(characterRectangle.x,characterRectangle.y);
+        System.out.println(isCollision);
+        if (isCollision){
+            character.setDirection(player.direction);
+            character.boost.v = player.boost.v;
+            character.collide(0);
+        }
     }
 
     public float getWidth() {

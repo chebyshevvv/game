@@ -14,6 +14,7 @@ public class WorldController {
     }
 
     public View refresh(){
+        world.checkCollision();
         return worldView;
     }
 }
